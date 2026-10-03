@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Boyfriend's Day! ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #2b0d0d;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .card-container {
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            position: relative;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            transform: scale(0.95);
+        }
+        .page.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+        }
+        
+        /* Using your exact screenshot filenames here */
+        #page1 { background-image: url('image_NhnbWY.png'); }
+        #page2 { background-image: url('image_j7AkvO.png'); }
+        #page3 { background-image: url('image_cKg3rd.png'); background-color: #ffffff; }
+        #page4 { background-image: url('image_DFsAD7.png'); }
+
+        .btn {
+            background: rgba(166, 25, 46, 0.9);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 10;
+        }
+        .btn:hover {
+            background: #e63946;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+        .nav-box {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .celebration {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .heart {
+            position: absolute;
+            bottom: -20px;
+            font-size: 24px;
+            animation: floatUp 4s linear infinite;
+            opacity: 0;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-700px) translateX(50px) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <!-- PAGE 1: COVER -->
+        <div class="page active" id="page1">
+            <div></div>
+            <button class="btn" onclick="nextPage(2)">Open Card ❤️</button>
+        </div>
+
+        <!-- PAGE 2: ENVELOPE PEEK -->
+        <div class="page" id="page2">
+            <div></div>
+            <div class="nav-box">
+                <button class="btn" onclick="nextPage(1)">Back</button>
+                <button class="btn" onclick="nextPage(3)">Pull Out Letter ✉️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 3: FULL LETTER -->
+        <div class="page" id="page3">
+            <div></div>
+            <div class="nav-box">
+                <button class="btn" onclick="nextPage(2)">Back</button>
+                <button class="btn" onclick="nextPage(4)">See Your Cake 🎂</button>
+            </div>
+        </div>
+
+        <!-- PAGE 4: CAKE -->
+        <div class="page" id="page4">
+            <div class="celebration" id="celebration-box"></div>
+            <div></div>
+            <button class="btn" onclick="nextPage(1)">Restart ✨</button>
+        </div>
+    </div>
+
+    <script>
+        function nextPage(pageNumber) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('page' + pageNumber).classList.add('active');
+
+            if(pageNumber === 4) {
+                startCelebration();
+            } else {
+                document.getElementById('celebration-box').innerHTML = '';
+            }
+        }
+
+        function startCelebration() {
+            const container = document.getElementById('celebration-box');
+            container.innerHTML = '';
+            const hearts = ['❤️', '💖', '✨', '🎈', '🥰'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                    container.appendChild(heart);
+                }, i * 300);
+            }
+        }
+    </script>
+</body>
+</html>
