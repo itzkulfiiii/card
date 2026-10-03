@@ -11,7 +11,7 @@
             padding: 0;
         }
         body {
-            background: linear-gradient(135deg, #1f0606, #3d1414);
+            background-color: #2b0d0d;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
@@ -21,14 +21,13 @@
         }
         .card-container {
             width: 100%;
-            max-width: 420px;
-            height: 580px;
+            max-width: 500px;
+            height: 600px;
             position: relative;
             background: #fff;
-            border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             overflow: hidden;
-            border: 4px solid #a6192e;
         }
         .page {
             position: absolute;
@@ -40,12 +39,14 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 45px 30px;
+            padding: 30px 20px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             opacity: 0;
             pointer-events: none;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
             transform: scale(0.95);
-            text-align: center;
         }
         .page.active {
             opacity: 1;
@@ -53,99 +54,32 @@
             transform: scale(1);
         }
         
-        /* Premium pure-CSS designs inspired by your original layout */
-        #page1 { 
-            background: radial-gradient(circle, #ff5e6c, #a6192e); 
-            color: white;
-        }
-        #page2 { 
-            background: #fff5f5; 
-            color: #4a1c1c;
-            border: 12px double #f3d1be;
-            border-radius: 20px;
-            margin: 10px;
-            width: calc(100% - 20px);
-            height: calc(100% - 20px);
-        }
-        #page3 { 
-            background: #fffaf7; 
-            color: #2b0d0d;
-            border: 8px double #a6192e;
-            border-radius: 20px;
-            margin: 10px;
-            width: calc(100% - 20px);
-            height: calc(100% - 20px);
-        }
-        #page4 { 
-            background: linear-gradient(180deg, #2b0d0d, #4a131a); 
-            color: white;
-        }
+        /* Aapki real image files ke exact names */
+        #page1 { background-image: url('image_7IzLZH.png'); }
+        #page2 { background-image: url('image_jd5jPU.png'); }
+        #page3 { background-image: url('image_cJfDIy.png'); }
+        #page4 { background-image: url('image_O9e79f.png'); }
 
-        /* Large Beautiful Graphics */
-        .graphic-box {
-            font-size: 90px;
-            margin-top: 20px;
-            animation: bounceAnim 2s infinite ease-in-out;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
-        }
-        @keyframes bounceAnim {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-10px) scale(1.05); }
-        }
-        
-        .title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            font-family: 'Georgia', serif;
-        }
-        #page3 .title {
-            color: #a6192e;
-        }
-        
-        .desc {
-            font-size: 16px;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-        
-        /* Premium Text Box for the letter */
-        .letter-content {
-            background: #ffffff;
-            padding: 25px 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(166,25,46,0.1);
-            font-style: italic;
-            margin: auto 0;
-            font-size: 15px;
-            line-height: 1.7;
-            color: #3d1414;
-            border-left: 4px solid #a6192e;
-        }
-
-        /* High-End Button Design */
         .btn {
-            background: #ffffff;
-            color: #a6192e;
+            background: rgba(166, 25, 46, 0.95);
+            color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 15px;
+            padding: 12px 30px;
+            font-size: 16px;
             font-weight: bold;
-            border-radius: 50px;
+            border-radius: 25px;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             z-index: 10;
         }
-        #page2 .btn, #page3 .btn {
-            background: #a6192e;
-            color: white;
-        }
         .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+            background: #e63946;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
         .nav-box {
             width: 100%;
@@ -154,14 +88,6 @@
             gap: 15px;
             z-index: 10;
         }
-        .btn-back {
-            background: transparent !important;
-            border: 2px solid currentColor !important;
-            color: currentColor !important;
-            box-shadow: none !important;
-        }
-
-        /* Floating Hearts Celebration */
         .celebration {
             position: absolute;
             width: 100%;
@@ -180,7 +106,7 @@
         }
         @keyframes floatUp {
             0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-620px) translateX(60px) rotate(360deg); opacity: 0; }
+            100% { transform: translateY(-700px) translateX(50px) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
@@ -189,48 +115,33 @@
     <div class="card-container">
         <!-- PAGE 1: COVER -->
         <div class="page active" id="page1">
-            <div class="graphic-box">💝</div>
-            <div>
-                <h1 class="title">Happy Boyfriend's Day!</h1>
-                <p class="desc">I made a sweet little interactive surprise just for you. Tap below to unveil it! ✨</p>
-            </div>
+            <div></div>
             <button class="btn" onclick="nextPage(2)">Open Card ❤️</button>
         </div>
 
         <!-- PAGE 2: ENVELOPE PEEK -->
         <div class="page" id="page2">
-            <div class="graphic-box">✉️</div>
-            <div>
-                <h1 class="title">You Got a Letter!</h1>
-                <p class="desc">A private heartfelt note is safely sealed inside this envelope. Open it whenever you are ready...</p>
-            </div>
+            <div></div>
             <div class="nav-box">
-                <button class="btn btn-back" onclick="nextPage(1)">Back</button>
-                <button class="btn" onclick="nextPage(3)">Read Note 💖</button>
+                <button class="btn" onclick="nextPage(1)">Back</button>
+                <button class="btn" onclick="nextPage(3)">Pull Out Letter ✉️</button>
             </div>
         </div>
 
         <!-- PAGE 3: FULL LETTER -->
         <div class="page" id="page3">
-            <h1 class="title">To My Favorite Person 💌</h1>
-            <div class="letter-content">
-                "Thank you for being the most amazing part of my life. You bring so much joy, love, and comfort into my world just by being yourself. I feel incredibly lucky to have you by my side. Happy Boyfriend's Day! I love you so much! ❤️"
-            </div>
+            <div></div>
             <div class="nav-box">
-                <button class="btn btn-back" onclick="nextPage(2)">Back</button>
-                <button class="btn" onclick="nextPage(4)">See Surprise 🎂</button>
+                <button class="btn" onclick="nextPage(2)">Back</button>
+                <button class="btn" onclick="nextPage(4)">See Your Cake 🎂</button>
             </div>
         </div>
 
-        <!-- PAGE 4: CAKE & CELEBRATION -->
+        <!-- PAGE 4: CAKE -->
         <div class="page" id="page4">
             <div class="celebration" id="celebration-box"></div>
-            <div class="graphic-box">🎂🎉</div>
-            <div>
-                <h1 class="title">Time to Celebrate!</h1>
-                <p class="desc">Yayyy! Wishing you all the happiness, smiles, and sweet moments in the universe. You mean the world to me! 🥰✨</p>
-            </div>
-            <button class="btn" onclick="nextPage(1)">Restart 🔄</button>
+            <div></div>
+            <button class="btn" onclick="nextPage(1)">Restart ✨</button>
         </div>
     </div>
 
@@ -251,18 +162,18 @@
         function startCelebration() {
             const container = document.getElementById('celebration-box');
             container.innerHTML = '';
-            const hearts = ['❤️', '💖', '✨', '🎈', '🥰', '🍫', '🌹'];
+            const hearts = ['❤️', '💖', '✨', '🎈', '🥰', '🌹'];
             
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 25; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.classList.add('heart');
                     heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
                     heart.style.left = Math.random() * 100 + '%';
-                    heart.style.animationDuration = (Math.random() * 2 + 2.5) + 's';
-                    heart.style.fontSize = (Math.random() * 15 + 20) + 'px';
+                    heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
                     container.appendChild(heart);
-                }, i * 200);
+                }, i * 300);
             }
         }
     </script>
