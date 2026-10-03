@@ -11,7 +11,7 @@
             padding: 0;
         }
         body {
-            background-color: #2b0d0d;
+            background: linear-gradient(135deg, #1f0606, #3d1414);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
@@ -21,12 +21,12 @@
         }
         .card-container {
             width: 100%;
-            max-width: 500px;
-            height: 600px;
+            max-width: 400px;
+            height: 550px;
             position: relative;
             background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
             overflow: hidden;
         }
         .page {
@@ -39,14 +39,12 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            padding: 40px 25px;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            transition: all 0.6s ease-in-out;
             transform: scale(0.95);
+            text-align: center;
         }
         .page.active {
             opacity: 1;
@@ -54,39 +52,99 @@
             transform: scale(1);
         }
         
-        /* Using your exact screenshot filenames here */
-        #page1 { background-image: url('image_NhnbWY.png'); }
-        #page2 { background-image: url('image_j7AkvO.png'); }
-        #page3 { background-image: url('image_cKg3rd.png'); background-color: #ffffff; }
-        #page4 { background-image: url('image_DFsAD7.png'); }
-
-        .btn {
-            background: rgba(166, 25, 46, 0.9);
+        /* Premium Background Designs using CSS instead of broken images */
+        #page1 { 
+            background: linear-gradient(145deg, #ff4b5c, #a6192e); 
             color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 16px;
+        }
+        #page2 { 
+            background: linear-gradient(145deg, #fceade, #f3d1be); 
+            color: #4a1c1c;
+        }
+        #page3 { 
+            background: #fff9f5; 
+            color: #2b0d0d;
+            border: 8px double #a6192e;
+        }
+        #page4 { 
+            background: linear-gradient(145deg, #2b0d0d, #521818); 
+            color: white;
+        }
+
+        /* Beautiful Typography & Styling */
+        .icon-box {
+            font-size: 80px;
+            margin-top: 30px;
+            animation: heartBeat 1.5s infinite;
+        }
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .title {
+            font-size: 28px;
             font-weight: bold;
-            border-radius: 25px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        .desc {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Letter Specific Styling */
+        .letter-content {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+            font-style: italic;
+            margin: auto 0;
+            font-size: 15px;
+        }
+
+        /* Buttons Styling */
+        .btn {
+            background: #ffffff;
+            color: #a6192e;
+            border: none;
+            padding: 14px 35px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-transform: uppercase;
             letter-spacing: 1px;
             z-index: 10;
         }
+        #page2 .btn, #page3 .btn {
+            background: #a6192e;
+            color: white;
+        }
         .btn:hover {
-            background: #e63946;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
         .nav-box {
             width: 100%;
             display: flex;
             justify-content: center;
             gap: 15px;
+            z-index: 10;
         }
+        .btn-back {
+            background: transparent !important;
+            border: 2px solid currentColor !important;
+            color: currentColor !important;
+            box-shadow: none !important;
+        }
+
+        /* Heart Floating Animation */
         .celebration {
             position: absolute;
             width: 100%;
@@ -105,7 +163,7 @@
         }
         @keyframes floatUp {
             0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-700px) translateX(50px) rotate(360deg); opacity: 0; }
+            100% { transform: translateY(-600px) translateX(50px) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
@@ -114,33 +172,48 @@
     <div class="card-container">
         <!-- PAGE 1: COVER -->
         <div class="page active" id="page1">
-            <div></div>
+            <div class="icon-box">💝</div>
+            <div>
+                <h1 class="title">Happy Boyfriend's Day!</h1>
+                <p class="desc">I made something special just for you. Tap below to see! ✨</p>
+            </div>
             <button class="btn" onclick="nextPage(2)">Open Card ❤️</button>
         </div>
 
         <!-- PAGE 2: ENVELOPE PEEK -->
         <div class="page" id="page2">
-            <div></div>
+            <div class="icon-box">✉️</div>
+            <div>
+                <h1 class="title">You Got a Letter!</h1>
+                <p class="desc">A private sweet message is sealed inside this envelope...</p>
+            </div>
             <div class="nav-box">
-                <button class="btn" onclick="nextPage(1)">Back</button>
-                <button class="btn" onclick="nextPage(3)">Pull Out Letter ✉️</button>
+                <button class="btn btn-back" onclick="nextPage(1)">Back</button>
+                <button class="btn" onclick="nextPage(3)">Pull Out Letter 💖</button>
             </div>
         </div>
 
         <!-- PAGE 3: FULL LETTER -->
         <div class="page" id="page3">
-            <div></div>
+            <h1 class="title" style="color: #a6192e;">For My Favorite Person 💌</h1>
+            <div class="letter-content">
+                "Yahan par aap apna pyaara sa personal message ya jo bhi baat unhe kehna chahte hain, likh sakte hain. Aap mere liye bohot zyada special ho aur main aapse bohot pyaar karti hoon!"
+            </div>
             <div class="nav-box">
-                <button class="btn" onclick="nextPage(2)">Back</button>
-                <button class="btn" onclick="nextPage(4)">See Your Cake 🎂</button>
+                <button class="btn btn-back" onclick="nextPage(2)">Back</button>
+                <button class="btn" onclick="nextPage(4)">See Surprise 🎂</button>
             </div>
         </div>
 
         <!-- PAGE 4: CAKE -->
         <div class="page" id="page4">
             <div class="celebration" id="celebration-box"></div>
-            <div></div>
-            <button class="btn" onclick="nextPage(1)">Restart ✨</button>
+            <div class="icon-box">🎂🎉</div>
+            <div>
+                <h1 class="title">Happy Celebration!</h1>
+                <p class="desc">Thank you for always being there for me. You deserve all the happiness! 🥰✨</p>
+            </div>
+            <button class="btn" onclick="nextPage(1)">Restart 🔄</button>
         </div>
     </div>
 
@@ -161,20 +234,21 @@
         function startCelebration() {
             const container = document.getElementById('celebration-box');
             container.innerHTML = '';
-            const hearts = ['❤️', '💖', '✨', '🎈', '🥰'];
+            const hearts = ['❤️', '💖', '✨', '🎈', '🥰', '🍫'];
             
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 25; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.classList.add('heart');
                     heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
                     heart.style.left = Math.random() * 100 + '%';
                     heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                    heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                    heart.style.fontSize = (Math.random() * 15 + 18) + 'px';
                     container.appendChild(heart);
-                }, i * 300);
+                }, i * 250);
             }
         }
     </script>
 </body>
 </html>
+
